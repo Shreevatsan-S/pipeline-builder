@@ -1,0 +1,152 @@
+:root {
+  --bg: #050915;
+  --panel: #0f172a;
+  --panel-border: #1f2937;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.15), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(249, 115, 22, 0.15), transparent 32%),
+    radial-gradient(circle at 70% 80%, rgba(167, 139, 250, 0.15), transparent 34%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 24px 28px;
+}
+
+.app-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.headline {
+  font-size: 18px;
+  color: #cbd5e1;
+}
+
+.toolbar {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 14px 16px 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.toolbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.toolbar-title {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.toolbar-subtitle {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.palette-item {
+  cursor: grab;
+  min-width: 80px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.palette-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+}
+
+.palette-label {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.flow-wrapper {
+  height: calc(100vh - 260px);
+  min-height: 420px;
+  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.submit-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: 6px 4px;
+}
+
+.primary-btn {
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: #0b1220;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 22px rgba(56, 189, 248, 0.35);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.primary-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(56, 189, 248, 0.45);
+}
+
+.primary-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.react-flow__pane,
+.react-flow__node,
+.react-flow__edge-path,
+.react-flow__handle {
+  transition: filter 0.15s ease;
+}
+
+.react-flow__minimap {
+  background: rgba(0, 0, 0, 0.45);
+}

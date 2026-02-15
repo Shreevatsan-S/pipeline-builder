@@ -1,0 +1,153 @@
+:root {
+  --node-surface: #0b1220;
+  --node-border: #1f2937;
+  --node-text: #e2e8f0;
+  --node-muted: #94a3b8;
+}
+
+.node-card {
+  position: relative;
+  min-width: 240px;
+  background: var(--node-surface);
+  border: 1.5px solid var(--node-border);
+  border-radius: 14px;
+  color: var(--node-text);
+  overflow: visible; /* allow handles/labels to render outside card */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.node-header {
+  padding: 10px 12px;
+  color: #f8fafc;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.node-title {
+  font-size: 14px;
+}
+
+.node-subtitle {
+  font-size: 11px;
+  opacity: 0.88;
+}
+
+.node-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.node-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #cbd5e1;
+}
+
+.field-control {
+  padding: 8px 10px;
+  border-radius: 9px;
+  border: 1px solid var(--node-border);
+  background: #0f172a;
+  color: var(--node-text);
+  font-size: 13px;
+  transition: border 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field-control:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25);
+}
+
+.field-control::placeholder {
+  color: #64748b;
+}
+
+.field-control textarea,
+.field-control input,
+.field-control select {
+  font-family: inherit;
+}
+
+textarea.field-control {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.field-hint {
+  font-size: 11px;
+  color: var(--node-muted);
+}
+
+.node-handle {
+  position: absolute;
+}
+
+/* Anchor handle containers to node edges to avoid overlap */
+.node-handle-left {
+  left: 0;
+}
+
+.node-handle-right {
+  right: 0;
+}
+
+.handle-label {
+  display: block; /* always visible */
+  pointer-events: none; /* ignore clicks so dragging works */
+  z-index: 5;
+  background: #0f172a;
+  border: 1px solid var(--node-border);
+  padding: 4px 8px;
+  border-radius: 9px;
+  font-size: 12px;
+  color: #cbd5e1;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* Labels are always visible; no hover needed */
+.node-handle {
+  overflow: visible;
+}
+
+/* Side-specific label placement to avoid overlap */
+.handle-label-left {
+  left: -24px; /* shift slightly right for better alignment */
+  right: auto;
+  transform: translate(-100%, -50%);
+}
+
+.handle-label-right {
+  right: -48px; /* push further right to avoid node body */
+  left: auto;
+  transform: translate(100%, -50%);
+}
+
+/* Enlarge React Flow handle hitbox for easier connections */
+.react-flow__handle {
+  width: 24px;
+  height: 24px;
+  border-width: 2px;
+}
+
+.react-flow__handle:hover {
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+}
+
+/* old overrides removed in favor of side-specific rules above */
